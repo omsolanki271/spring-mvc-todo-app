@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="https://www.springframework.org/schema/beans"
+       xmlns:mvc="https://www.springframework.org/schema/mvc"
+       xmlns:context="https://www.springframework.org/schema/context"
+       xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       https://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       https://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd
+       https://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Enable annotation support -->
+    <mvc:annotation-driven/>
+
+    <!-- Scan controller package -->
+    <context:component-scan base-package="com.omsolanki"/>
+
+</beans>
