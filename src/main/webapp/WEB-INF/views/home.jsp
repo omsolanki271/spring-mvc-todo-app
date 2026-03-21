@@ -16,7 +16,7 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>OmTech Todo</title>
+<title><c:out value="${page}"></c:out></title>
 </head>
 <body>
 
@@ -29,21 +29,21 @@
 					<button type="button"
 						class="list-group-item list-group-item-action active">
 						Menu</button>
-					<button type="button"
-						class="list-group-item list-group-item-action">Add Todo</button>
-					<button type="button"
-						class="list-group-item list-group-item-action">View Todo</button>
+					<a href='<c:url value='add'></c:url>'
+						class="list-group-item list-group-item-action">Add Todo</a> 
+					<a href='<c:url value='home'></c:url>'
+						class="list-group-item list-group-item-action">View Todo</a> 
 				</div>
 			</div>
 			<div class="col-md-10">
 				<!-- <h3 class="text-center	">Contents</h3> -->
 				<%-- <c:out value="${page}"/> --%>
 				<c:if test="${page =='homepage'}">
-						<h2>All TODO</h2>
+					<h2>All TODO</h2>
 				</c:if>
-				
+
 				<c:if test="${page =='addpage'}">
-						<h2>Add TODO</h2>
+					<h2>Add TODO</h2>
 				</c:if>
 
 			</div>
