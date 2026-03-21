@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +20,6 @@
 </head>
 <body>
 
-
 	<div class="container mt-3">
 		<h1 class="text-center">WelCome to TODO App</h1>
 		<div class="row mt-4">
@@ -36,6 +37,7 @@
 			</div>
 			<div class="col-md-10">
 				<h3 class="text-center	">Contents</h3>
+				<c:out value="${model_str}"/>
 			</div>
 		</div>
 	</div>
