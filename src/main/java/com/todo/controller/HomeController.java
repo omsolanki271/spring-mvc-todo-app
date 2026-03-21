@@ -11,8 +11,15 @@ public class HomeController {
 	@RequestMapping("/home")
 	public String home(Model model)
 	{
-		String str = "Home";
-		model.addAttribute("model_str",str);
+		String str = "homepage";
+		model.addAttribute("page",str);
+		return "home";
+	}
+	
+	@RequestMapping("/add")
+	public String addTodo(Model model)
+	{
+		model.addAttribute("page", "addpage");
 		return "home";
 	}
 }

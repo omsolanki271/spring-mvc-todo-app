@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <!doctype html>
 <html lang="en">
@@ -36,8 +36,16 @@
 				</div>
 			</div>
 			<div class="col-md-10">
-				<h3 class="text-center	">Contents</h3>
-				<c:out value="${model_str}"/>
+				<!-- <h3 class="text-center	">Contents</h3> -->
+				<%-- <c:out value="${page}"/> --%>
+				<c:if test="${page =='homepage'}">
+						<h2>All TODO</h2>
+				</c:if>
+				
+				<c:if test="${page =='addpage'}">
+						<h2>Add TODO</h2>
+				</c:if>
+
 			</div>
 		</div>
 	</div>
