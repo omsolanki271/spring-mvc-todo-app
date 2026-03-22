@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false"%>
 <!doctype html>
 <html lang="en">
@@ -44,6 +45,20 @@
 
 				<c:if test="${page =='addpage'}">
 					<h2>Add TODO</h2>
+					
+					<form:form action="savetodo" method="post" modelAttribute="todo">
+						<div class="form-group">
+							<!-- path meaning kya value put karvi -> todo class na variable ma -->
+							<form:input path="todoTitle" cssClass="form-control" placeholder="Enter your title"/>
+						</div>
+						<div class="form-group">
+							<form:textarea path="todoContent" cssClass="form-control" placeholder="Enter Your Content" cssStyle="height:300px;"/>
+						</div>
+						<div class="container">
+							<button type="submit" class="btn btn-success">Save Todo</button>
+						</div>
+						
+					</form:form>
 				</c:if>
 
 			</div>
