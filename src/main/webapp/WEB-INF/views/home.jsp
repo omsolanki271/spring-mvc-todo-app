@@ -39,8 +39,8 @@
 						class="list-group-item list-group-item-action active">
 						Menu</button>
 					<a href='<c:url value='add'></c:url>'
-						class="list-group-item list-group-item-action">Add Todo</a> <a
-						href='<c:url value='home'></c:url>'
+						class="list-group-item list-group-item-action">Add Todo</a> 
+					<a href='<c:url value='home'></c:url>'
 						class="list-group-item list-group-item-action">View Todo</a>
 				</div>
 			</div>
@@ -49,6 +49,19 @@
 				<%-- <c:out value="${page}"/> --%>
 				<c:if test="${page =='homepage'}">
 					<h2>All TODO</h2>
+					<c:forEach items="${showtodo}" var="todostor">
+
+						<div class="card">
+							<div class="card-body">
+								<h2>
+									<c:out value="${todostor.todoTitle}"></c:out>
+								</h2>
+								<p>
+									<c:out value="${todostor.todoContent}"></c:out>
+								</p>
+							</div>
+						</div>
+					</c:forEach>
 				</c:if>
 
 				<c:if test="${page =='addpage'}">
