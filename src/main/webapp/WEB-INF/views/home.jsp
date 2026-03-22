@@ -59,6 +59,8 @@
 								<p>
 									<c:out value="${todostor.todoContent}"></c:out>
 								</p>
+								<p><b>Date:</b> ${todostor.date}</p>
+								
 							</div>
 						</div>
 					</c:forEach>

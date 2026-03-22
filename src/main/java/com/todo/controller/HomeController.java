@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.todo.entities.Todo;
 
@@ -26,7 +28,13 @@ public class HomeController {
 	{
 		String str = "homepage";
 		model.addAttribute("page",str);
+				 
+		List<Todo> list = (List<Todo>) context.getAttribute("list");
+        if (list == null) {
+            list = new ArrayList<>();
+        }
 
+        model.addAttribute("showtodo", list);
 		return "home";
 	}
 	
@@ -40,23 +48,25 @@ public class HomeController {
 	}
 	
 	@PostMapping("/savetodo")
-	public String savedata(@ModelAttribute("todo") Todo t,Model model)
+	public String savedata(@ModelAttribute("todo") Todo t,Model model,RedirectAttributes redirectAttributes)
 	{
 		t.setDate(new Date());
 		System.out.println(t);
-		List<Todo> list = (List<Todo>) context.getAttribute("list");
-		 if (list == null) {
-		        list = new ArrayList<>();
-		  }
-		list.add(t);
-		context.setAttribute("list", list);
-		
-		model.addAttribute("msg", "Successfully Todo Add...");
-		
-		model.addAttribute("page", "homepage");
-		//for todo list in view page
-		model.addAttribute("showtodo", list);
-		return "home";
+		 List<Todo> list = (List<Todo>) context.getAttribute("list");
+
+	        if (list == null) {
+	            list = new ArrayList<>();
+	        }
+
+	        list.add(t);
+	        
+	    context.setAttribute("list", list);
+	    
+	    redirectAttributes.addFlashAttribute("msg", "Todo Added Successfully!");
+
+		return "redirect:/home";
 	}
+	
+	
 }
 
